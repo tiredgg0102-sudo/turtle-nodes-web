@@ -10,5 +10,5 @@ python-multipart==0.0.9
 httpx==0.28.1
 email-validator==2.2.0
 discord.py==2.3.2
-python-dotenv==1.0.1
+python-dotenv>=1.2.2
 cryptography==50.0.2

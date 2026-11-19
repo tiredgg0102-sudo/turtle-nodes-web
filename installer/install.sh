@@ -151,12 +151,17 @@ install_deps() {
 setup_app() {
   step "Setting up application directory"
   mkdir -p "$INSTALL_DIR"
-  # If source is provided via INSTALL_SOURCE env, copy; else assume bundled.
+  # If source is provided via INSTALL_SOURCE env, copy; otherwise assume the
+  # repository was already cloned into INSTALL_DIR (git clone workflow).
   if [[ -n "${INSTALL_SOURCE:-}" && -d "$INSTALL_SOURCE" ]]; then
     cp -a "$INSTALL_SOURCE/." "$INSTALL_DIR/"
     ok "Application files copied from $INSTALL_SOURCE"
+  elif [[ -f "$INSTALL_DIR/backend/requirements.txt" ]]; then
+    ok "Application files already present in $INSTALL_DIR (git clone workflow)"
   else
-    warn "INSTALL_SOURCE not set. Place application files in $INSTALL_DIR manually before running repair/configure."
+    err "No application files found in $INSTALL_DIR and INSTALL_SOURCE not set."
+    err "Clone the repo first: git clone <url> $INSTALL_DIR"
+    exit 1
   fi
   python3 -m venv "$VENV_DIR"
   "$VENV_DIR/bin/pip" install --upgrade pip
