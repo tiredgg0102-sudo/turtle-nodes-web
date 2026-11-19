@@ -1,0 +1,25 @@
+# Environment & secrets
+.env
+*.db
+*.db-journal
+secret.key
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Logs
+*.log
+server.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Installer backups
+*.bak
+install.log

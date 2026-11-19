@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hosting Platform</title>
+  <meta name="description" content="Premium futuristic hosting business platform" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            bg: '#050816',
+            'bg-2': '#0a0f2c',
+            card: 'rgba(255,255,255,0.04)',
+            primary: '#00ff88',
+            secondary: '#00d4ff',
+            accent: '#7c3aed',
+            muted: '#9aa0b4',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          boxShadow: {
+            glow: '0 0 24px rgba(0,255,136,0.35)',
+            'glow-cyan': '0 0 24px rgba(0,212,255,0.35)',
+          },
+          backdropBlur: { xs: '2px' },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/assets/css/app.css" />
+</head>
+<body class="bg-bg text-white font-sans antialiased min-h-screen">
+  <div id="app"></div>
+  <div id="toast-container" class="fixed top-4 right-4 z-[9999] flex flex-col gap-2"></div>
+  <script type="module" src="/assets/js/app.js"></script>
+</body>
+</html>
